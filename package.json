@@ -18,6 +18,6 @@
   "homepage": "https://github.com/Ddyko/cypresstest#readme",
   "description": "",
   "dependencies": {
-    "cypress": "^12.17.0"
+    "cypress": "^12.17.1"
   }
 }
