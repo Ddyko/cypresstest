@@ -1,8 +1,15 @@
 /// <reference types="cypress" />
 
+import { AllPage } from "../page-object/all-page"
+
+const allPage = new AllPage()
+
 describe('User Login using the correct credentials', () => {
+ 
+
   it('Given user is already in login page', () => {
-    cy.visit('https://secondhand-store.herokuapp.com/')
+
+    allPage.openWeb()
 
     cy.contains('Masuk').click()
 
@@ -23,4 +30,45 @@ describe('User Login using the correct credentials', () => {
     cy.get('button').click()
 
   });
+
+  it('Then user successfully login', () => {
+    
+    cy.get('#user').should('have.id','user')
+
+  });
+
+})
+
+describe('User unable to login using non registered email', () =>{
+  it('Given user already in login page', () => {
+
+    allPage.openLogin()
+
+    allPage.validLoginPage()
+  })
+
+  it('When user input non registered email', () =>{
+
+    allPage.wrongEmail()
+
+  })
+
+  it('And user input correct password', () =>{
+
+    allPage.inputPassword()
+
+  })
+
+  it('And user click the Masuk Button', () =>{
+
+    cy.get('button').click()
+
+  })
+
+  it('Then user gets account not found notification', () =>{
+
+    cy.get('.alert').should('have.text', 'Akun tidak ditemukan×')
+
+  })
+  
 })
