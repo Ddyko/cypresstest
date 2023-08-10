@@ -91,6 +91,21 @@ describe('User wants to login using unverified email', () => {
   })
 
   it('Then user will get notification to verify the email first', () => {
-    cy.get('.alert').should('have.textgit add', 'Silahkan cek email anda untuk melakukan verifikasi terlebih dahulu×')
+    cy.get('.alert').should('have.text', 'Silahkan cek email anda untuk melakukan verifikasi terlebih dahulu×')
   })
-}) 
+})
+
+describe('User trying to login without filling the user field and password', ()=> {
+  it('Given user already in login page', ()=>{
+    allPage.openLogin()
+    allPage.validLoginPage()
+  })
+
+  it('When user directly press the masuk button', ()=> {
+    cy.get('button').click()
+  })
+
+  it('Then user will stay on the login page', ()=> {
+    cy.get('strong').should('have.text', 'Masuk')
+  })
+})
