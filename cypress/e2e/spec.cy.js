@@ -70,5 +70,27 @@ describe('User unable to login using non registered email', () =>{
     cy.get('.alert').should('have.text', 'Akun tidak ditemukan×')
 
   })
-  
 })
+
+describe('User wants to login using unverified email', () => {
+    
+  it('Given user already in login page', () => {
+    allPage.openLogin()
+    
+    allPage.validLoginPage()
+  })
+
+  it('When user input unverified email and correct password', () =>{
+    cy.get('#exampleInputEmail1').type('andiko@gmail.com')
+
+    allPage.inputPassword()
+  })
+
+  it('And user press login button', () => {
+    cy.get('button').click()
+  })
+
+  it('Then user will get notification to verify the email first', () => {
+    cy.get('.alert').should('have.text', 'Silahkan cek email anda untuk melakukan verifikasi terlebih dahulu×')
+  })
+}) 
