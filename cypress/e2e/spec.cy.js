@@ -6,7 +6,7 @@ describe('User Login using the correct credentials', () => {
 
   })
 
-  it('When user inpur correct credential and press Masuk button', () => {
+  it('When user inputnpm correct credential and press Masuk button', () => {
     
     cy.get('#exampleInputEmail1').type('andiko.gunawan@gmail.com'),
 
