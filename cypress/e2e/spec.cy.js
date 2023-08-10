@@ -91,6 +91,6 @@ describe('User wants to login using unverified email', () => {
   })
 
   it('Then user will get notification to verify the email first', () => {
-    cy.get('.alert').should('have.text', 'Silahkan cek email anda untuk melakukan verifikasi terlebih dahulu×')
+    cy.get('.alert').should('have.textgit add', 'Silahkan cek email anda untuk melakukan verifikasi terlebih dahulu×')
   })
 }) 
