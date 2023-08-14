@@ -7,6 +7,17 @@ export class AllPage {
         cy.visit('https://secondhand-store.herokuapp.com/login')
     }
 
+    openRegister() {
+        cy.visit('https://secondhand-store.herokuapp.com/signup')
+    }
+
+    validRegisterPage() {
+        cy.get('strong').should('have.text', 'Daftar')
+        cy.get('#inputAddress').should('not.contain.text')
+        cy.get('#exampleInputEmail').should('not.contain.text')
+        cy.get('#exampleInputPassword1 ').should('not.contain.text')
+    }
+
     validLoginPage() {
         cy.get('strong').should('have.text', 'Masuk')
 
