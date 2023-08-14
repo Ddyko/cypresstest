@@ -14,8 +14,8 @@ export class AllPage {
     validRegisterPage() {
         cy.get('strong').should('have.text', 'Daftar')
         cy.get('#inputAddress').should('not.contain.text')
-        cy.get('#exampleInputEmail').should('not.contain.text')
-        cy.get('#exampleInputPassword1 ').should('not.contain.text')
+        cy.get('#exampleInputEmail1').should('not.contain.text')
+        cy.get('input[id="exampleInputPassword1 "]').should('not.contain.text')
     }
 
     validLoginPage() {
