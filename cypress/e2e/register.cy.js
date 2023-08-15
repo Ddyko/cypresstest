@@ -47,3 +47,27 @@ describe('User want to register an account', () => {
         cy.get('.alert > strong').should('contain.text','Silahkan verifikasi email agar dapat menggunakan layanan kami')
     })
 })
+
+describe('User want to register an account using an already registered email', () => {
+  it('Given user already open the register page', () => {
+      allPage.openRegister()
+      allPage.validRegisterPage()
+  })
+
+  it('When user input name', () => {
+      cy.get('#inputAddress').type(userID_Alpha())
+  })
+
+  it('And user input unregistered email', () => {
+      cy.get('#exampleInputEmail1').type('andiko.gunawan@gmail.com')
+  })
+
+  it('And user input correct format password and pressed the daftar button', () => {
+      allPage.inputPassword()
+      cy.get('.btn').click()
+  })
+
+  it('Then user gets email already registered alert', () => {
+      cy.get('.alert > strong').should('contain.text','Email sudah digunakan')
+  })
+})
