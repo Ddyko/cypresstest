@@ -41,4 +41,14 @@ export class AllPage {
     wrongPassword() {
         cy.get('input[id="exampleInputPassword1 "]').type('aijsdiasjdi')
     }
+
+    userLogin() {
+        cy.visit('https://secondhand-store.herokuapp.com/login')
+        cy.get('#exampleInputEmail1').type('andiko.gunawan@gmail.com')
+        cy.get('input[id="exampleInputPassword1 "]').type('12345678')
+        cy.get('button').click()
+        cy.get('#user').should('be.visible')
+        cy.get('#notification').should('be.visible')
+        cy.get('.nav-link').should('be.visible')
+    }
 }
