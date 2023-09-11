@@ -15,7 +15,7 @@ describe('User want to see detail of product in homepage', () => {
     
     it('Then user can see product details', () => {
         cy.get('.col-md-6 > .card > .card-body > .card-text').should('not.be.empty')
-        cy.get('.col-md-6 > .card > .card-body > .card-text').should('not.be.empty')
+        cy.get('.col-md-6 > .card > .card-body > .card-text').should('not.be.empty')                                                                     
         cy.get('.col-md-6 > .card > .card-body > .card-text').should('not.be.empty')
         cy.get('.col-md-6 > .card > .card-body > .card-text').should('not.be.empty')
     })
